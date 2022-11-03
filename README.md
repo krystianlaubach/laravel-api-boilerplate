@@ -1,11 +1,18 @@
 # Laravel API Boilerplate
 
-### Laravel based API boilerplate to be used as a starting point for new microservice API development.
+#### Laravel based API boilerplate to be used as a starting point for new microservice API development.
+
+- PHP 8.1
+- Laravel 9.x
+- Laravel Sanctum Authentication
+- Laravel Scribe API Documentation
+
+Frontend features limited to the login page for authenticating access to the API documentation.
 <hr>
 
 ## Local Environment Setup
 
-### If you are running multiple Laravel based microservices using Docker at the same time, you will have to edit `docker-compose.yml` to rename services and run each microservice on different port on your localhost. To allow microservices to talk to each other, you also need to configure app shared networks.
+#### If you are running multiple Laravel based microservices using Docker at the same time, you will have to edit `docker-compose.yml` to rename services and run each microservice on different port on your localhost. To allow microservices to talk to each other, you also need to configure app shared networks.
 <hr>
 
 ### Copy .env.example to .env

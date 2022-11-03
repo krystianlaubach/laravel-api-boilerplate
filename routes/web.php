@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$goAway = function() {
-    return response(null, 444);
-};
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::any('/', $goAway);
-Route::any('/{any}', $goAway);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';

@@ -43,6 +43,11 @@ sail up -d
 sail npm install
 ```
 
+### Run development mode (This is an API boilerplate, however we need to build assets for Breeze authentication feature used to secure API Documentation)
+```
+npm run dev
+```
+
 ### Migrate development database
 ```
 sail artisan migrate --seed
@@ -58,19 +63,9 @@ sail artisan migrate --seed --env=testing
 sail artisan key:generate
 ```
 
-### Generate API Documentation
-```
-sail artisan scribe:generate
-```
-
 ### Create the symbolic link for the files in local storage that should be publicly accessible.
 ```
 php artisan storage:link
-```
-
-### Re-generate API Documentation
-```
-sail artisan scribe:generate --force
 ```
 
 ### App runs at
@@ -88,3 +83,46 @@ localhost:6033
 SMTP localhost:1026
 HTTP localhost:8026
 ```
+
+<hr>
+
+## API Documentation
+
+By default, project uses Scribe to generate API documentation for humans from Laravel codebase.
+
+https://scribe.knuckles.wtf/laravel/
+
+https://github.com/knuckleswtf/scribe/
+
+### Generate API Documentation
+```
+sail artisan scribe:generate
+```
+
+### Re-generate API Documentation
+```
+sail artisan scribe:generate --force
+```
+
+<hr>
+
+## IDE Helper
+
+Project uses Laravel IDE Helper Generator that enable your IDE to provide accurate autocompletion. 
+
+https://github.com/barryvdh/laravel-ide-helper
+
+### PHPDoc Generation for Laravel Facades
+```
+sail artisan ide-helper:generate 
+```
+
+### PHPDoc Generation for Laravel Models
+```
+sail artisan ide-helper:models 
+```
+
+Once you generated PHPDoc for the model you may 
+
+
+

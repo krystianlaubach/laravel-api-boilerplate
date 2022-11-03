@@ -22,7 +22,7 @@ services:
             - '.:/var/www/html'
         networks:
             - api-network
-            - middleware_shared
+#            - middleware_shared
         depends_on:
             - api-mysql
             - api-mailhog
@@ -55,8 +55,8 @@ services:
             - api-network
 networks:
     api-network:
-    middleware_shared:
-        external: true
+#    middleware_shared:
+#        external: true
 volumes:
     api-mysql-volume:
         driver: local

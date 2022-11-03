@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ApiDocumentationController;
 use Illuminate\Support\Facades\Route;
+
+require __DIR__.'/auth.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('guest')->group(function () {
+    Route::get('/', fn () => redirect('/login'));
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+Route::middleware('auth')->group(function () {
+    Route::get('/docs', [ApiDocumentationController::class, 'index'])->name('scribe');
+    Route::get('/postman', [ApiDocumentationController::class, 'postman'])->name('scribe.postman');
+    Route::get('/openapi', [ApiDocumentationController::class, 'openapi'])->name('scribe.openapi');
+});

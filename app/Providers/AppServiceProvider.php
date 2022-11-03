@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         if ($this->app->environment('local')) {
             $this->app->register(IdeHelperServiceProvider::class);
@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
     }
 }

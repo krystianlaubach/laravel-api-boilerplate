@@ -45,7 +45,7 @@ sail npm install
 
 ### Run development mode (This is an API boilerplate, however we need to build assets for Breeze authentication feature used to secure API Documentation)
 ```
-npm run dev
+sail npm run dev
 ```
 
 ### Migrate development database
@@ -65,7 +65,7 @@ sail artisan key:generate
 
 ### Create the symbolic link for the files in local storage that should be publicly accessible.
 ```
-php artisan storage:link
+sail artisan storage:link
 ```
 
 ### App runs at
@@ -122,7 +122,9 @@ sail artisan ide-helper:generate
 sail artisan ide-helper:models 
 ```
 
-Once you generated PHPDoc for the model you may 
-
-
-
+Once you generated PHPDoc for the model you may want to add the model to `ignored_models` array in `config/ide-helper.php` to prevent overriding PHPDoc next time.
+```
+'ignored_models' => [
+    \App\Models\User::class,
+],
+```
